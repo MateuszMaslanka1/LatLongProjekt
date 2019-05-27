@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    color: red;
+}
+
+.main-border
+{
+    width: 1000px;
+    height: 1000px;
+    background-color: lightskyblue;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    padding-top: 6rem;
+}
+
+.border-for-input
+{
+    width: 650px;
+    height: 300px;
+    background-color: lightgray;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-for-lat-long
+{
+    display: inline-block;
+    width: 15rem;
+    height: 3rem;
+    margin: 2rem;
+    border-radius: 0.2rem;
+    font-size: 2rem;
+}
