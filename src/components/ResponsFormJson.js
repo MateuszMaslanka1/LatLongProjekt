@@ -1,34 +1,54 @@
 import React, {Component} from "react";
 import ReactDOM from 'react-dom';
+import BorderForAdress from "./BorderForAdress";
+import ShowMap from './Map'
+import AddToJson from './AddToJson'
+const UIDGenerator = require('uid-generator');
 
+const uidgen = new UIDGenerator(); 
 
 class ResponsFormJson extends Component
 {
     state = {
-        country: "United States",
-        countryTertiarySubdivision: "Manhattan",
-        freeformAddress: "89 West 86th Transverse Road, New York, NY 10024", 
+        country: "",
+        countryTertiarySubdivision: "",
+        freeformAddress: "",
     }
 
-    // componentDidMount() 
-    //  {
-    //        fetch('https://api.tomtom.com/search/2/reverseGeocode/40.785091,-73.968285.json?key=')
-    //        .then(resp => resp.json())
-    //        .then(resp =>  {
-    //            console.log(resp);
-    //             this.setState({
-    //              country: resp.addresses["0"].address.country,
-    //              countryTertiarySubdivision: resp.addresses["0"].address.countryTertiarySubdivision,
-    //              freeformAddress: resp.addresses["0"].address.freeformAddress
-    //        })
-    //      })
-    //  }
+     componentDidMount() 
+     {             
+        if (this.props.latitude !== 0 && this.props.longitude !== 0)
+        {
+                fetch(`https://api.tomtom.com/search/2/reverseGeocode/${this.props.latitude},${this.props.longitude}.json?key=f2eAAbZNip8kP1s1fua618KaouD3hBxR`)
+                .then(resp => resp.json())
+                .then(resp =>  {
+                     //console.log(resp);
+                      this.setState({
+                       country: resp.addresses["0"].address.country,
+                       countryTertiarySubdivision: resp.addresses["0"].address.countryTertiarySubdivision,
+                        freeformAddress: resp.addresses["0"].address.freeformAddress
+                 })
+            })
+        } 
+     }
+
     render()
     {
-        return <h1>{this.state.country}<br></br>
-                    {this.state.countryTertiarySubdivision}<br></br>
-                    {this.state.freeformAddress}<br></br>
-                </h1>
+        console.log("tutaj: " + this.props.id)
+        let userid;
+        if(localStorage.getItem('key') == null)
+        {
+            userid = uidgen.generateSync()
+            localStorage.setItem('key', userid);  
+        }
+        else
+        {
+            userid = localStorage.getItem('key')
+        } 
+        
+        return <><BorderForAdress country={this.state.country} countryTertiarySubdivision={this.state.countryTertiarySubdivision} freeformAddress={this.state.freeformAddress}/>
+        <div className="set-map"><ShowMap latitude={this.props.latitude} longitude={this.props.longitude}/></div>
+        <AddToJson lat={this.props.latitude} long ={this.props.longitude} userid={userid}/></>
     }
 }
 

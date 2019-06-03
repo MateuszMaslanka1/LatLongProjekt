@@ -2,39 +2,233 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+    border-radius: 0.5rem;
+    color: whitesmoke;
 }
 
 .app {
     color: red;
 }
 
+body
+{
+    background-image: url("/map-3483539_1280.jpg");
+    background-size: cover;
+    
+    .button-for-history
+    {
+        position: fixed;
+        color: black;
+        top: 0;
+        padding: 10px 5px;
+        display: block;
+        width: 15rem;
+        height: 3rem;
+        //margin: 0 auto;
+        margin-top: 0.5rem;
+        background-color: whitesmoke;
+        font-size: 1rem;
+        margin-left: 2rem;
+        animation: animation1 5s infinite;
+        transition: all ease-in-out .15s;
+    }
+
+    .button-for-hidden
+    {
+        animation: hidden linear 0.2s;
+        animation-fill-mode: forwards;
+    }
+
+    button.button-for-history:hover
+     {
+         transform: scale(1.2);
+     }
+}
+
+.main-history
+{
+    width: 650px;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(180,58,58,1) 11%, rgba(253,29,29,1) 25%, rgba(252,176,69,1) 100%);
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+    h1{
+        text-align: center;
+    }
+
+        div{
+             width: 100%;
+             height: 5rem;
+             padding-top: 2.8rem;
+             padding-right: 1rem;
+             display: flex;
+             align-items: center;
+             justify-content: flex-end;
+
+            button{
+                color: black;
+                width: 2rem;
+                height: 2rem;
+                font-size: 1rem;
+                transition: all ease-in-out .15s;
+            }
+
+            button:hover{
+                transform: scale(1.5);
+            }
+        }
+
+    tr{
+        display: block;
+        margin: 0 auto;
+        width: 20rem;
+
+        td{
+            font-size: 1rem;
+            line-height: 2rem;
+        }
+    }
+}
+
 .main-border
 {
     width: 1000px;
-    height: 1000px;
-    background-color: lightskyblue;
-    border-radius: 0.5rem;
+    height: 100%;
     margin: 0 auto;
     padding-top: 6rem;
-}
+    padding-bottom: 6rem;
 
-.border-for-input
-{
+    .show-id
+    {
+        background: linear-gradient(0deg, rgba(180,58,58,1) 11%, rgba(253,29,29,1) 25%, rgba(252,176,69,1) 100%);
+        width: 650px;
+        height: 200px;
+        margin: 0 auto;
+        margin-top: 3rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        
+        h1
+        {
+            text-align: center;
+        }
+
+        p
+        {
+            text-align: center;
+            padding-top: 1rem;
+        }
+    }
+
+    .border-for-input
+    {
     width: 650px;
-    height: 300px;
-    background-color: lightgray;
+    height: 550px;
+    background: linear-gradient(0deg, rgba(180,58,58,1) 11%, rgba(253,29,29,1) 25%, rgba(252,176,69,1) 100%);
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-top: 1rem;
+
+
+        .input-for-lat-long
+        {
+            color: black;
+            display: block;
+            width: 15rem;
+            margin: 0 auto;
+            height: 3rem;
+            border-radius: 0.2rem;
+            font-size: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-for-text
+        {
+            color: black;
+            display: block;
+            width: 30rem;
+            margin: 0 auto;
+            height: 3rem;
+            border-radius: 0.2rem;
+            font-size: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .LabelPosition
+        {
+            display: block;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+
+        .CorrectButton
+        {
+            display: block;
+            color: black;
+            width: 15rem;
+            height: 3rem;
+            margin: 0 auto;
+            margin-top: 2rem;
+            background-color: whitesmoke;
+            font-size: 1rem;
+            transition: all ease-in-out .15s;
+        }
+
+        .CorrectButton:hover
+        {
+            transform: scale(1.2);
+        }
+    }
+    .BorderAdress
+    {
+        width: 650px;
+        height: 200px;
+        margin: 0 auto;
+        margin-top: 6rem;
+        background: linear-gradient(0deg, rgba(180,58,58,1) 11%, rgba(253,29,29,1) 25%, rgba(252,176,69,1) 100%);
+        h1{
+            animation: slow linear 3s;
+        }
+        h2{
+            animation: slow linear 3s;
+        }
+        h3{
+            animation: slow linear 3s;
+        }
+    }
+    .header
+    {
+        display: block;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .set-map
+    {
+        width: 650px;
+        height: 400px;
+        margin: 0 auto;
+        margin-top: 6rem;
+    }
 }
 
-.input-for-lat-long
+
+@keyframes slow
 {
-    display: inline-block;
-    width: 15rem;
-    height: 3rem;
-    margin: 2rem;
-    border-radius: 0.2rem;
-    font-size: 2rem;
+    0% { transform: scale(0); background-color: red }
+    50% { transform: scale(0.5); background-color: blue }
+    100% {transform: scale(1); background-color: yellowgreen}
+}
+
+@keyframes hidden
+{
+    0% { transform: scale(1);  }
+    50% { transform: scale(0.5);  }
+    100% { transform: scale(0);}
 }

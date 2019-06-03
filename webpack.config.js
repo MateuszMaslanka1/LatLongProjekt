@@ -16,8 +16,9 @@ module.exports = {
     devServer: {
         // contentBase: path.join(__dirname, `${entryPath}`),
         // publicPath: "/build/",
+        host: '192.168.1.19',
         compress: true,
-        port: 3001,
+        port: 8080,
         historyApiFallback: true
     },
     module: {
